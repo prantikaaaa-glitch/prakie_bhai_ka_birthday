@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prakie's Secret Diary ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f7efe5;--pink:#e9c7c9;--rose:#b87580;--burgundy:#632d3d;--brown:#634b43;--lavender:#d9c9df;--paper:#fffaf1}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--brown);font-family:'Quicksand',sans-serif;overflow-x:hidden;background-image:radial-gradient(#b8758015 1px,transparent 1px);background-size:17px 17px}
+nav{position:sticky;top:0;z-index:100;background:#f7efe5ed;backdrop-filter:blur(10px);border-bottom:1px dashed #b8758066;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:17px 10px}
+nav a{color:var(--burgundy);text-decoration:none;font-size:11px;letter-spacing:2px;font-weight:700;padding:8px 12px;transition:.3s}
+nav a:hover{background:var(--pink);border-radius:30px}
+section{padding:90px 8%;max-width:1200px;margin:auto}
+.eyebrow{font-size:11px;letter-spacing:4px;color:var(--rose);text-transform:uppercase;text-align:center;margin-bottom:16px}
+h1,h2,h3{font-family:'DM Serif Display',serif;color:var(--burgundy)}
+h2{text-align:center;font-size:clamp(35px,6vw,55px);font-weight:normal;margin-bottom:15px}
+.subtitle{text-align:center;font-family:'Caveat',cursive;font-size:24px;color:var(--rose);margin-bottom:45px}
+#home{min-height:85vh;display:flex;align-items:center;justify-content:center;padding-top:75px}
+.hero-card{width:min(850px,100%);background:var(--paper);border:1px solid #d7b9a9;outline:1px dashed #c18d8d;outline-offset:8px;padding:65px 35px;text-align:center;position:relative;box-shadow:10px 12px 0 #b875801c}
+.hero-card:before{content:"✿  ✧  ♡  ✧  ✿";display:block;color:var(--rose);letter-spacing:12px;margin-bottom:30px}
+.hero-card h1{font-size:clamp(43px,8vw,85px);line-height:1.1;margin-bottom:20px}
+.hero-card h1 span{font-style:italic;color:var(--rose)}
+.hero-text{max-width:480px;margin:auto;line-height:2;font-size:14px}
+.hero-note{font-family:'Caveat',cursive;font-size:25px;color:var(--rose);margin-top:20px}
+.btn{display:inline-block;border:none;background:var(--burgundy);color:white;padding:14px 25px;border-radius:3px;text-decoration:none;letter-spacing:2px;font-size:11px;font-weight:bold;cursor:pointer;margin-top:25px;transition:.3s}
+.btn:hover{background:var(--rose);transform:translateY(-3px)}
+.teddy-sticker{position:absolute;width:190px;right:-55px;bottom:-65px;z-index:10;transform:rotate(8deg);animation:float 3s ease-in-out infinite;pointer-events:none}
+.teddy-sticker img{width:100%;display:block;mix-blend-mode:multiply;filter:drop-shadow(3px 5px 5px #634b4330)}
+@keyframes float{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(4deg) translateY(-9px)}}
+.divider{text-align:center;color:var(--rose);font-size:23px;letter-spacing:15px;padding:15px}
+.memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;align-items:start}
+.memory{background:var(--paper);padding:12px 12px 24px;position:relative;box-shadow:3px 7px 15px #634b4320;transform:rotate(-1.5deg);transition:.3s}
+.memory:nth-child(even){transform:rotate(1.8deg)}
+.memory:nth-child(3n){transform:rotate(-2.5deg)}
+.memory:hover{transform:rotate(0) translateY(-8px) scale(1.02);z-index:2}
+.memory:before{content:"";position:absolute;width:72px;height:20px;background:#e9c7c9b8;top:-9px;left:50%;transform:translateX(-50%) rotate(-3deg);z-index:2}
+.memory img{width:100%;height:260px;object-fit:cover;display:block;background:#ead8d1}
+.memory figcaption{text-align:center;font-family:'Caveat',cursive;font-size:23px;color:var(--burgundy);padding-top:13px}
+.memory small{display:block;text-align:center;font-family:'Quicksand',sans-serif;font-size:10px;letter-spacing:2px;color:var(--rose);margin-top:4px}
+.artist-card{background:var(--burgundy);color:var(--cream);padding:55px 35px;text-align:center;position:relative;border-radius:3px;overflow:hidden}
+.artist-card h2{color:var(--cream)}
+.artist-card p{max-width:600px;margin:20px auto;line-height:2;font-size:14px}
+.artist-card .doodle{font-size:35px;letter-spacing:15px}
+.chaos-box{max-width:650px;margin:auto;background:#eee3ed;border:2px solid #c8afc7;padding:30px;box-shadow:8px 8px 0 #b8758025}
+.chaos-top{background:var(--burgundy);color:white;padding:12px;text-align:center;letter-spacing:3px;font-size:11px;margin-bottom:25px}
+.chaos-buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.chaos-buttons button{padding:16px 8px;background:var(--paper);color:var(--burgundy);border:1px dashed var(--rose);font-family:'Quicksand',sans-serif;font-weight:bold;cursor:pointer;transition:.2s}
+.chaos-buttons button:hover{background:var(--pink);transform:scale(1.03)}
+#chaosResult{background:var(--paper);padding:25px;margin-top:20px;text-align:center;font-family:'Caveat',cursive;font-size:24px;min-height:80px;color:var(--burgundy)}
+.letter-wrap{max-width:700px;margin:auto;background:#fffaf0;border:1px solid #d8bca5;padding:45px;position:relative;box-shadow:8px 9px 0 #b875801c;background-image:repeating-linear-gradient(transparent,transparent 34px,#b8758020 35px)}
+.letter-wrap:before{content:"PRIVATE • FOR PRAKIE ONLY";display:block;text-align:center;font-size:10px;letter-spacing:4px;color:var(--rose);margin-bottom:30px}
+.letter-wrap h2{font-family:'Caveat',cursive;font-size:38px}
+.letter-content{display:none;line-height:2.1;font-size:14px;white-space:pre-line;margin-top:25px}
+.letter-content.show{display:block}
+.signature{font-family:'Caveat',cursive;color:var(--burgundy);font-size:27px;margin-top:20px}
+footer{text-align:center;padding:40px 15px;background:var(--burgundy);color:var(--cream);font-family:'Caveat',cursive;font-size:22px}
+footer span{color:var(--pink)}
+.sparkle{position:fixed;pointer-events:none;z-index:999;animation:sparkle 1s forwards}
+@keyframes sparkle{to{transform:translateY(-60px) rotate(90deg);opacity:0}}
+@media(max-width:600px){section{padding:65px 6%}.hero-card{padding:55px 20px 75px}.teddy-sticker{width:125px;right:-10px;bottom:-65px}.chaos-buttons{grid-template-columns:1fr}.letter-wrap{padding:30px 22px}nav{gap:3px}nav a{font-size:9px;padding:8px}.memory img{height:300px}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#home">HOME</a><a href="#memories">MEMORIES</a><a href="#artist">ARTIST</a><a href="#chaos">CHAOS</a><a href="#letter">LETTER</a>
+</nav>
+
+<section id="home">
+<div class="hero-card">
+<div class="eyebrow">A tiny corner of the universe ♡</div>
+<h1>HAPPY BIRTHDAY<br><span>PRAKIE!</span></h1>
+<p class="hero-text">Welcome to your very own little world. A place filled with memories, questionable decisions, pretty things and a whole lot of love.</p>
+<p class="hero-note">Made with love, chaos and zero sanity.</p>
+<a href="#memories" class="btn">ENTER YOUR WORLD ♡</a>
+<div class="teddy-sticker"><img src="teddy.jpg" alt="Teddy holding a bouquet"></div>
+</div>
+</section>
+
+<div class="divider">✿ ♡ ✧ ♡ ✿</div>
+
+<section id="memories">
+<div class="eyebrow">Little pieces of us</div>
+<h2>The Memory Lane</h2>
+<p class="subtitle">A collection of our favourite nonsense...</p>
+<div class="memory-grid">
+<figure class="memory"><img src="memory1.jpg" alt="Prakie childhood memory"><figcaption>Little miss sunshine ♡</figcaption><small>THE BEGINNING</small></figure>
+<figure class="memory"><img src="memory2.jpg" alt="Bestie selfie"><figcaption>Partners in pout 💋</figcaption><small>DOUBLE TROUBLE</small></figure>
+<figure class="memory"><img src="memory3.jpg" alt="Bestie selfie"><figcaption>One braincell, two owners</figcaption><small>ICONIC DUO</small></figure>
+<figure class="memory"><img src="memory4.jpg" alt="Silly bestie selfie"><figcaption>Certified chaos ✧</figcaption><small>NO EXPLANATION</small></figure>
+<figure class="memory"><img src="memory5.jpg" alt="Prakie pink outfit photo"><figcaption>Pretty in pink 🎀</figcaption><small>MAIN CHARACTER</small></figure>
+<figure class="memory"><img src="memory6.jpg" alt="Prakie close-up photo"><figcaption>Miss mysterious ♡</figcaption><small>THE ART OF BEING YOU</small></figure>
+</div>
+</section>
+
+<div class="divider">୨୧ ───── ♡ ───── ୨୧</div>
+
+<section id="artist">
+<div class="artist-card">
+<div class="doodle">✧ 🎨 ✧</div>
+<div class="eyebrow" style="color:#e9c7c9;margin-top:20px">A little appreciation</div>
+<h2>To the little artist...</h2>
+<p>To the girl who can turn a blank page into something beautiful. Never stop creating, experimenting, making mistakes and discovering new things. Your creativity is one of the loveliest things about you. Keep making art, keep being wonderfully weird and never underestimate yourself.</p>
+<p style="font-family:'Caveat';font-size:27px">The world needs more of your kind of magic. ♡</p>
+<div class="doodle">🌷 🐈 🎀</div>
+</div>
+</section>
+
+<section id="chaos">
+<div class="eyebrow">Warning: questionable content</div><h2>Prakie.exe</h2>
+<p class="subtitle">A highly unstable human operating system.</p>
+<div class="chaos-box">
+<div class="chaos-top">✦ PRAKIE'S CHAOS GENERATOR ✦</div>
+<div class="chaos-buttons">
+<button onclick="showChaos('roast')">Roast Me 🎀</button><button onclick="showChaos('brain')">Brain at 3 AM 🧠</button>
+<button onclick="showChaos('decision')">Bad Decision Generator 💀</button><button onclick="showChaos('artist')">Artist Challenge 🎨</button>
+<button onclick="showChaos('record')">Criminal Record 📁</button><button onclick="showChaos('summon')">Summon the Chaos ✨</button>
+</div><div id="chaosResult">Click a button. Let's see what happens...</div>
+</div>
+</section>
+
+<div class="divider">♡ ✧ ♡ ✧ ♡</div>
+
+<section id="letter">
+<div class="eyebrow">Sealed with love</div><h2>A Little Letter</h2><p class="subtitle">This one's just for you.</p>
+<div class="letter-wrap">
+<h2>Dear Pakistani (aka Prakie),</h2>
+<div style="text-align:center"><button class="btn" onclick="openLetter()">OPEN MY LETTER 💌</button></div>
+<div class="letter-content" id="letterContent">
+HAPPIEST BIRTHDAYYYYY!! 😭💗
+
+First of all, congratulations on surviving another year of being you. Honestly, that's an achievement in itself. I hope this year brings you all the happiness, opportunities, beautiful memories and little moments that make life worth living.
+
+I genuinely hope you never stop making art, being creative, trying new things and being your wonderfully confusing self. Even on days when you don't have everything figured out, remember that you don't have to. You're allowed to grow at your own pace, change your mind and discover new versions of yourself.
+
+And please, never forget how special you are. You're one of those people who make life a little more interesting just by existing. I hope you get everything your heart has been quietly wishing for.
+
+Stay weird, stay creative, keep smiling and PLEASE make better decisions this year. (I know that's asking for too much.)
+
+Thank you for being you. Here's to more laughter, more random conversations, more memories and more chaos.
+
+You deserve a beautiful year, Prakie. Never doubt that.
+</div>
+<div class="signature" id="signature" style="display:none">With lots of love,<br>Your Pran ♡</div>
+</div>
+</section>
+
+<footer>Made with <span>♡</span>, chaos and a little bit of magic.<br><small style="font-family:Quicksand;font-size:10px;letter-spacing:2px">PRAKIE'S SECRET DIARY • 2026</small></footer>
+
+<script>
+const chaos={
+roast:["Cute face, questionable decisions. 😭","Professional overthinker. Amateur decision maker.","A walking Pinterest board with 2% battery.","Your brain needs a software update. 💀"],
+brain:["What if pigeons are government employees?","Remember that embarrassing thing from 2019? Yeah.","I should sleep. Anyway, let's overthink.","What if I just disappeared into a bakery?"],
+decision:["Become a mysterious forest fairy.","Open a cafe exclusively for confused people.","Become famous and immediately buy snacks.","Start a band. No instruments required."],
+artist:["Draw a cat wearing a royal crown. 👑","Create a strawberry princess.","Draw your mood as a tiny creature.","Turn a potato into a masterpiece."],
+record:["Guilty of stealing everyone's hearts.","Charged with excessive cuteness.","Wanted for being ridiculously talented.","Suspected of causing emotional damage."],
+summon:["CHAOS HAS BEEN SUMMONED. GOOD LUCK.","The universe has temporarily lost its balance.","A tiny fairy just resigned because of you.","Congratulations. You are officially the main character."]
+};
+function showChaos(type){const a=chaos[type];document.getElementById("chaosResult").innerText=a[Math.floor(Math.random()*a.length)];if(type==="summon")confetti()}
+function openLetter(){document.getElementById("letterContent").classList.add("show");document.getElementById("signature").style.display="block";confetti()}
+function confetti(){const symbols=["♡","✦","🎀","🌷","✨","✿"];for(let i=0;i<35;i++){const item=document.createElement("div");item.className="sparkle";item.innerText=symbols[Math.floor(Math.random()*symbols.length)];item.style.left=Math.random()*100+"vw";item.style.top=Math.random()*100+"vh";item.style.fontSize=(12+Math.random()*18)+"px";document.body.appendChild(item);setTimeout(()=>item.remove(),1100)}}
+document.addEventListener("click",e=>{if(e.target.closest("button,a"))return;const heart=document.createElement("div");heart.className="sparkle";heart.innerText="♡";heart.style.left=e.clientX+"px";heart.style.top=e.clientY+"px";heart.style.color="#b87580";heart.style.fontSize="22px";document.body.appendChild(heart);setTimeout(()=>heart.remove(),1000)});
+</script>
+</body>
+</html>
